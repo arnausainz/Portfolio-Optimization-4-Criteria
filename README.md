@@ -27,7 +27,7 @@ Portfolio objective functions (the four criteria)
     
     SK_criterion: an extended objective that includes skewness and kurtosis terms (it hence prefers portfolios with favorable tail properties in addition to mean and        variance).
     
-    SR_criterion: negative Sharpe ratio (so minimizing it is equivalent to maximizing Sharpe), where Sharpe = (mean return) / (std dev).
+    SR_criterion: negative Sharpe ratio (so minimizing it is equivalent to maximizing Sharpe), where Sharpe = (mean return - RF) / (std dev).
     
     SOR_criterion: negative Sortino ratio (like Sharpe but penalizes only downside volatility).
     
