@@ -7,7 +7,7 @@ Step-by-step explanation
 
 Imports and tickers
 
-    The script imports the required Python libraries (yfinance for market data, pandas and numpy for data handling, scipy for optimization, matplotlib for plotting, and          stats functions).
+    The script imports the required Python libraries (yfinance for market data, pandas and numpy for data handling, scipy for optimization, matplotlib for plotting, and     stats functions).
     
     It defines a list of 50 tickers (large, diversified US stocks) and a start date (1-Jan-2000).
 
@@ -17,15 +17,15 @@ Data download and preparation
     
     It keeps the closing prices, drops rows with missing values, and computes daily percentage returns (pct_change).
     
-    It splits the returns into a training set (first 70%) and a test set (last 30%). The training set is used to fit/optimize portfolios and the test set is used to evaluate     performance out-of-sample.
+    It splits the returns into a training set (first 70%) and a test set (last 30%). The training set is used to fit/optimize portfolios and the test set is used to evaluate performance out-of-sample.
 
 Portfolio objective functions (the four criteria)
 
-    The script defines four functions which receive a candidate vector of weights and compute a score that the optimizer minimizes. In simple terms, each function evaluates      a portfolio according to a different preference:
+    The script defines four functions which receive a candidate vector of weights and compute a score that the optimizer minimizes. In simple terms, each function evaluates a portfolio according to a different preference:
 
-    MV_criterion: a mean-variance style objective that rewards higher expected return and penalizes variance (classic return vs. risk trade-off). The function returns the        negative of the criterion because the optimizer minimizes and we want to maximize the original objective.
+    MV_criterion: a mean-variance style objective that rewards higher expected return and penalizes variance (classic return vs. risk trade-off). The function returns the   negative of the criterion because the optimizer minimizes and we want to maximize the original objective.
     
-    SK_criterion: an extended objective that includes skewness and kurtosis terms (it hence prefers portfolios with favorable tail properties in addition to mean and             variance).
+    SK_criterion: an extended objective that includes skewness and kurtosis terms (it hence prefers portfolios with favorable tail properties in addition to mean and        variance).
     
     SR_criterion: negative Sharpe ratio (so minimizing it is equivalent to maximizing Sharpe), where Sharpe = (mean return) / (std dev).
     
@@ -53,11 +53,11 @@ Optimization setup and constraints
 
 Out-of-sample return calculation
 
-    Using the optimized weights from each criterion, the script computes the portfolio returns on the test set (out-of-sample) by weighting daily returns and summing across      assets — this provides a fair evaluation of how the portfolios would have performed on unseen data.
+    Using the optimized weights from each criterion, the script computes the portfolio returns on the test set (out-of-sample) by weighting daily returns and summing across assets — this provides a fair evaluation of how the portfolios would have performed on unseen data.
 
 Plotting results
 
-    The script plots cumulative returns (in percent) over the test period for the four portfolios on the same chart, saves the chart as Cumulative_Return.png and displays         it. This chart visually compares out-of-sample performance.
+    The script plots cumulative returns (in percent) over the test period for the four portfolios on the same chart, saves the chart as Cumulative_Return.png and displays it. This chart visually compares out-of-sample performance.
 
 Results tables and formatting
 
@@ -69,4 +69,4 @@ Results tables and formatting
 
 Export to Excel
     
-    Both DataFrames (df_weights and df_returns) are written to a single Excel file Results.xlsx with two separate sheets: “Weights” and “Returns”. This Excel file plus the       saved PNG are the deliverables.
+    Both DataFrames (df_weights and df_returns) are written to a single Excel file Results.xlsx with two separate sheets: “Weights” and “Returns”. This Excel file plus the saved PNG are the deliverables.
